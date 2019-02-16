@@ -19,7 +19,7 @@ Domain Flow Properties:
 Domain Mechanical Properties:
   domain:
     label: 9999992
-    Coupled: 0
+    Coupled: false
     GMCELL_MODEL: 0
     GMCELL_DENSITY: 1000
     GMCELL_YOUNG: 1
@@ -63,4 +63,4 @@ Boundary Conditions:            # geomechanical bc's
       value: [0, nan, nan]
     node:
       coord: [0, -100, 0]
-      value: [0, nan, nan]
+      value: [0, nn, nan]
