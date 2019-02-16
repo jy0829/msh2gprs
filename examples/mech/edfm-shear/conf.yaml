@@ -1,0 +1,74 @@
+Mesh file: geom.msh
+
+Embedded Fractures :
+  fracture:
+    type: Rectangle
+    center: [0, 0, 0]
+    length: 9.99
+    width: 20
+    dip:     90,
+    strike:  30,
+    cohesion: 0,
+    friction angle: 30,
+    dilation angle: 1e-6,
+    aperture: 1e-4,
+    conductivity: 2
+
+Domain Flow Properties:
+  domain:
+    label: 9999992
+    RTEMP: 343.15
+    THCROCK: 2.8
+    PORO: 0.2
+    PERM: 10
+    SWAT: 0.0
+    PRESSURE: 2
+
+Domain Mechanical Properties:
+  domain:
+    label: 9999992
+    Coupled: false
+    GMCELL_MODEL: 3
+    GMCELL_DENSITY: 1000
+    GMCELL_YOUNG: 1
+    GMCELL_BIOT: 0.25
+    GMREF_TEMPERATURE: 343.15
+    GMCELL_HEAT_CAPACITY: 2626.0605
+    GMCELL_THERMAL_EXPANSION: 0
+    GMCELL_PORE_THERMAL_EXPANSION : 0
+    GMCELL_POISSON: 0.25
+    GMREF_PRESSURE: 2
+
+Boundary Conditions:            # geomechanical bc's
+  Faces:
+    face:
+      label: 1111111
+      type: 2                     # neumann
+      value: [-100, 0, 0]
+    face: # right
+      label: 1111112
+      type: 2
+      value: [100, 0, 0]
+    face: # bottom
+      label: 3333331
+      type: 1
+      value: [nan, nan, 0]
+    face: # top
+      label: 3333332
+      type: 1
+      value: [nan, nan, 0]
+
+  Dirichlet nodes:
+    search tolerance: 1e-4
+    node:
+      coord: [-100, 0, 0]
+      value: [nan, 0, nan]
+    node:
+      coord: [100, 0, 0]
+      value: [nan, 0, nan]
+    node:
+      coord: [0, 100, 0]
+      value: [0, nan, nan]
+    node:
+      coord: [0, -100, 0]
+      value: [0, nn, nan]

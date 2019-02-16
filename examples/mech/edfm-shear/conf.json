@@ -39,7 +39,7 @@
         "9999992": [
             {"_comment_" : "example of assigning coupling (GMCELL_TO_FLOWCELL)"},
             {"_comment_" : "True by default"},
-            {"Coupled"                       : "1"},
+            {"Coupled"                       : "0"},
             {"GMCELL_MODEL"                  : "3"},
             {"GMCELL_DENSITY"                : "1000"},
             {"GMCELL_YOUNG"                  : "1"},
