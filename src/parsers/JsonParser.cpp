@@ -99,6 +99,8 @@ JsonParser::domain_props(const nlohmann::json::iterator & section_it,
         counter++;
     }
 
+    // This looks unecessarily complicated, an unordered_map will do the exact same thing
+
     // get pointer to the existing config or create if none
     DomainConfig * p_conf;
     if (counter == config.domains.size())
@@ -266,7 +268,7 @@ JsonParser::boundary_conditions_face(nlohmann::json::iterator         it,
     if (key == comment)
       continue;
     else if (key == "type")
-      conf.type = (*it).get<int>();
+      conf.type = (*it).get<int>(); // JY: instead of int, the B.C. type should better be a string
     else if (key == "value")
     {
       const std::vector<std::string> str_values =

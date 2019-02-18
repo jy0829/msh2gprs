@@ -90,7 +90,7 @@ struct SimdataConfig
   std::string wells_file            = "wells.txt";
   // special keywords needed for computing fluid data
   // (they are not outputted)
-  static constexpr double nan = -999.999;
+  static constexpr double nan = -999.999;  // JY: should this be a number that is unlikely to occur, e.g. largest double
   double node_search_tolerance = 1e-10;
   double frac_cell_elinination_factor = 0.2;
 };

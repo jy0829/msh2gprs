@@ -1365,6 +1365,7 @@ void SimData::definePhysicalFacets()
   {
     const bool is_boundary = (face.neighbors().size() < 2);
     const int marker = face.marker();
+    // JY: shouldn't follow this loop if not a boundary face?
     for (const auto & conf : config.bc_faces)
       if (marker == conf.label)
       {
@@ -1385,7 +1386,7 @@ void SimData::definePhysicalFacets()
       }
 
     if (!is_boundary and marker != 0)
-    {
+    {  // JY: is this section only for DFM faces?
       PhysicalFace facet;
       facet.nface = face.index();
       facet.ntype = 0;

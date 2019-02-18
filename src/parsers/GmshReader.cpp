@@ -130,7 +130,7 @@ void GmshReader::read_gmsh2_input(std::fstream & mesh_file,
     // fourth - marker
     // fifth - ?
     // later - vertex indices
-    const int vert_shift = 5;  // index of first vertex in line
+    constexpr int vert_shift = 5;  // index of first vertex in line
     const int element_type = std::atoi(tokens[1].c_str());
     const int vtk_id = get_vtk_index(element_type);
     const int marker = std::atoi(tokens[3].c_str());
@@ -139,6 +139,7 @@ void GmshReader::read_gmsh2_input(std::fstream & mesh_file,
       ivertices[j] = std::atoi(tokens[j+vert_shift].c_str()) - 1;
 
     // 3D element
+    // JY: should be a vector instead, find operation is expensive
     if (std::find(begin(polyhedras), end(polyhedras), element_type) != polyhedras.end())
     {
       // const auto polyhedron = angem::PolyhedronFactory::create

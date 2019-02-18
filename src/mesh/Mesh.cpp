@@ -77,7 +77,7 @@ void Mesh::insert_cell(const std::vector<std::size_t> & ivertices,
       Face face_data;
       face_data.neighbors.push_back(new_element_index);
       face_data.index = map_faces.size();
-      face_data.old_index = face_data.index;
+      face_data.old_index = face_data.index; // why do we need old_index?
       face_data.ordered_indices = face;
       switch (face.size())
       {
@@ -172,7 +172,7 @@ void Mesh::insert_face(const std::vector<std::size_t> & ivertices,
     map_faces.insert({hash, face_data});
   }
   else
-  {
+  { // JY: when do we have duplicated face data?
     it->second.marker = marker;
     it->second.vtk_id = vtk_id;
   }
